@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -41,12 +42,29 @@ class SlotMachine extends StatelessWidget {
   }
 }
 
-class Slot extends StatelessWidget {
+class Slot extends StatefulWidget {
+  Slot({Key key}) : super(key: key);
+
+  @override
+  _SlotState createState() => _SlotState();
+}
+
+class _SlotState extends State<Slot> {
   var slot1 = Random().nextInt(11) + 1;
+
   var slot2 = Random().nextInt(11) + 1;
+
   var slot3 = Random().nextInt(11) + 1;
 
-  Slot({Key key}) : super(key: key);
+  void setSlotnumber() {
+    setState(() {
+      slot1 = Random().nextInt(11) + 1;
+
+      slot2 = Random().nextInt(11) + 1;
+
+      slot3 = Random().nextInt(11) + 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +75,7 @@ class Slot extends StatelessWidget {
           Expanded(
             child: FlatButton(
               padding: EdgeInsets.all(0.0),
-              onPressed: () {},
+              onPressed: setSlotnumber,
               child: Container(
                 child: Image.asset('images/$slot1.png'),
               ),
@@ -66,7 +84,7 @@ class Slot extends StatelessWidget {
           Expanded(
             child: FlatButton(
               padding: EdgeInsets.all(0.0),
-              onPressed: () {},
+              onPressed: setSlotnumber,
               child: Container(
                 child: Image.asset('images/$slot2.png'),
               ),
@@ -75,7 +93,7 @@ class Slot extends StatelessWidget {
           Expanded(
             child: FlatButton(
               padding: EdgeInsets.all(0.0),
-              onPressed: () {},
+              onPressed: setSlotnumber,
               child: Container(
                 child: Image.asset('images/$slot3.png'),
               ),
