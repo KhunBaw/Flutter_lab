@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lab4/answer.dart';
-import 'package:flutter_lab4/question.dart';
+import 'question.dart';
+import 'answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,39 +28,39 @@ class ComSciQuiz extends StatefulWidget {
 
 class _ComSciQuizState extends State<ComSciQuiz> {
   int questionIndex = 0;
-  int answerIndex = 0;
+  int choiceIndex = 0;
   int totalScore = 0;
 
   final _questions = const [
     {
-      'questionText': "1. สาขาที่นักศึกษาชอบเรียน?",
-      'answerText': ["วิทยาการคอมพิวเตอร์", "IT", "วิทคอม", "วิทยา"],
-      'scores': [10, 9, 8, 7]
+      'questionText': "สาขาที่นักศึกษาชอบเรียน?",
+      'choices': ["วิทยาการคอมพิวเตอร์", "Computer Science", "ComSci", "Cs"],
+      'scores': [5, 5, 3, 2]
     },
     {
-      'questionText': "2. ง่วงนอนหรือยัง?",
-      'answerText': ["ไม่ง่วง", "พอใช้", "ง่วง", "โครตง่วง"],
-      'scores': [10, 9, 8, 7]
+      'questionText': "ภาษาโปรแกรมที่นักศึกษาชอบ?",
+      'choices': ["HTML", "C++", "SQL", "Java"],
+      'scores': [1, 2, 3, 5]
     },
     {
-      'questionText': "3. สาขาที่นักศึกษาชอบเรียน?",
-      'answerText': ["วิทยาการคอมพิวเตอร์", "IT", "วิทคอม", "วิทยา"],
-      'scores': [10, 9, 8, 7]
-    }
+      'questionText': "วิชาที่คิดว่ายากที่สุด?",
+      'choices': ["แคลคูลัส", "Flutter", "โครงสร้างข้อมูล", "โครงสร้างดิสครีต"],
+      'scores': [5, 4, 3, 5]
+    },
   ];
+
+  void _answerQuestion() {
+    setState(() {
+      questionIndex = questionIndex + 1;
+      if (questionIndex >= _questions.length) {
+        questionIndex = 0;
+      }
+      print("Question : ");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    void _answerQuestion() {
-      setState(() {
-        questionIndex = questionIndex + 1;
-        if (questionIndex >= _questions.length) {
-          questionIndex = 0;
-        }
-        print("gggg");
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -70,10 +70,10 @@ class _ComSciQuizState extends State<ComSciQuiz> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Question(_questions[questionIndex]['questionText']),
-            Answer(_answerQuestion, _questions[questionIndex]['answerText'], 0),
-            Answer(_answerQuestion, _questions[questionIndex]['answerText'], 1),
-            Answer(_answerQuestion, _questions[questionIndex]['answerText'], 2),
-            Answer(_answerQuestion, _questions[questionIndex]['answerText'], 3),
+            Answer(_answerQuestion, _questions[questionIndex]['choices'], 0),
+            Answer(_answerQuestion, _questions[questionIndex]['choices'], 1),
+            Answer(_answerQuestion, _questions[questionIndex]['choices'], 2),
+            Answer(_answerQuestion, _questions[questionIndex]['choices'], 3),
           ],
         ),
       ),
