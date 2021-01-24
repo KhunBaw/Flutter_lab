@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
 import 'answer.dart';
+import 'csQuiz.dart';
+import 'score.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,13 +51,16 @@ class _ComSciQuizState extends State<ComSciQuiz> {
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     setState(() {
       questionIndex = questionIndex + 1;
-      if (questionIndex >= _questions.length) {
-        questionIndex = 0;
-      }
-      print("Question : ");
+      totalScore += score;
+      // if (questionIndex >= _questions.length) {
+      //   questionIndex = 0;
+      //   totalScore = 0;
+      // }
+      print("Question : $questionIndex");
+      print("Score : $totalScore");
     });
   }
 
@@ -65,18 +70,7 @@ class _ComSciQuizState extends State<ComSciQuiz> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Question(_questions[questionIndex]['questionText']),
-            Answer(_answerQuestion, _questions[questionIndex]['choices'], 0),
-            Answer(_answerQuestion, _questions[questionIndex]['choices'], 1),
-            Answer(_answerQuestion, _questions[questionIndex]['choices'], 2),
-            Answer(_answerQuestion, _questions[questionIndex]['choices'], 3),
-          ],
-        ),
-      ),
+      body: Score(_answerQuestion, _questions, questionIndex, totalScore),
     );
   }
 }
