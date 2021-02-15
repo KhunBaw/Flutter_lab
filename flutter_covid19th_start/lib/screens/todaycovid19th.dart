@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_covid19th/components/todayconvid19th/confirmed.dart';
-import 'package:flutter_covid19th/components/todayconvid19th/new_confirmed.dart';
 import '../components/todayconvid19th/deaths.dart';
 import '../components/todayconvid19th/recovered.dart';
+import '../components/todayconvid19th/confirmed.dart';
+import '../components/todayconvid19th/new_confirmed.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:intl/intl.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 
 class TodayCovid19Th extends StatefulWidget {
   @override
@@ -32,14 +31,15 @@ class _TodayCovid19ThState extends State<TodayCovid19Th> {
     http.Response response =
         await http.get('https://covid19.th-stat.com/api/open/today');
     if (response.statusCode == 200) {
+      String data = response.body;
+
       setState(() {
-        String data = response.body;
-        numberConfirmed = jsonDecode(data)['Confirmed'];
-        numberNewConfirmed = jsonDecode(data)['NewConfirmed'];
-        numberRecovered = jsonDecode(data)['Recovered'];
-        numberNewRecovered = jsonDecode(data)['NewRecovered'];
-        numberDeaths = jsonDecode(data)['Deaths'];
-        numberNewDeaths = jsonDecode(data)['NewDeaths'];
+        numberConfirmed = jsonDecode(data)["Confirmed"];
+        numberNewConfirmed = jsonDecode(data)["NewConfirmed"];
+        numberRecovered = jsonDecode(data)["Recovered"];
+        numberNewRecovered = jsonDecode(data)["NewRecovered"];
+        numberDeaths = jsonDecode(data)["Deaths"];
+        numberNewDeaths = jsonDecode(data)["NewDeaths"];
       });
     } else {
       print(response.statusCode);

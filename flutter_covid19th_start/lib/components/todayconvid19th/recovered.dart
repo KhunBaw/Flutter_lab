@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Recovered extends StatelessWidget {
   const Recovered({
@@ -36,9 +36,9 @@ class Recovered extends StatelessWidget {
             alignment: Alignment.center,
             child: //Code for checking null
                 (numberNewRecovered == null || numberRecovered == null)
-                    ? SpinKitFadingCircle(
+                    ? SpinKitRotatingCircle(
                         color: Colors.white,
-                        size: 50,
+                        size: 20,
                       )
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -49,7 +49,7 @@ class Recovered extends StatelessWidget {
                           Container(
                             alignment: Alignment.centerRight,
                             child: Text(
-                              "+$numberNewRecovered",
+                              "$numberNewRecovered",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 25,

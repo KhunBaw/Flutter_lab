@@ -4,12 +4,12 @@ import 'dart:convert';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-class CovidChartTimeline extends StatefulWidget {
+class Covid14 extends StatefulWidget {
   @override
   _CovidChartTimelineState createState() => _CovidChartTimelineState();
 }
 
-class _CovidChartTimelineState extends State<CovidChartTimeline> {
+class _CovidChartTimelineState extends State<Covid14> {
   //Code for data List Declaration
   List<FlSpot> listData = [];
 
@@ -28,10 +28,10 @@ class _CovidChartTimelineState extends State<CovidChartTimeline> {
       List<dynamic> covidData = (jsonDecode(data)["Data"] as List<dynamic>);
       int n = 0;
       setState(() {
-        for (int i = covidData.length - 12; i < covidData.length - 1; i++) {
+        for (int i = covidData.length - 16; i < covidData.length - 1; i++) {
           n++;
-          listData.add(FlSpot((n - 11).toDouble(),
-              (covidData[i]["NewConfirmed"] as int).toDouble()));
+          listData.add(FlSpot((n - 15).toDouble(),
+              (covidData[i]["Confirmed"] as int).toDouble()));
         }
       });
     } else {
@@ -53,7 +53,7 @@ class _CovidChartTimelineState extends State<CovidChartTimeline> {
           child: Column(
             children: [
               Text(
-                "ผู้ป่วยใหม่ย้อนหลัง 10 วัน",
+                "ผู้ป่วยสะสม 14 วัน",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,

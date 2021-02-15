@@ -35,9 +35,9 @@ class Deaths extends StatelessWidget {
             alignment: Alignment.center,
             child: //Code for checking null
                 (numberNewDeaths == null || numberDeaths == null)
-                    ? SpinKitFadingCircle(
+                    ? SpinKitRotatingCircle(
                         color: Colors.white,
-                        size: 50,
+                        size: 20,
                       )
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -48,7 +48,7 @@ class Deaths extends StatelessWidget {
                           Container(
                             alignment: Alignment.centerRight,
                             child: Text(
-                              "+$numberNewDeaths",
+                              "$numberNewDeaths",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -60,7 +60,7 @@ class Deaths extends StatelessWidget {
                             "$numberDeaths",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 39,
+                              fontSize: 42,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

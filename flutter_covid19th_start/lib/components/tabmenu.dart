@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/todaycovid19th.dart';
 import '../screens/chart.dart';
+import '../screens/About.dart';
 //import '../screens/about.dart';
 
 class Covid19TabMenu extends StatelessWidget {
@@ -15,7 +16,7 @@ class Covid19TabMenu extends StatelessWidget {
     ),
     Center(
       child: Container(
-        child: Text("About"),
+        child: Covid14(),
       ),
     ),
   ];

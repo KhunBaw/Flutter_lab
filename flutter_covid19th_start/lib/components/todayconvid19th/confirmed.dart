@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
 
@@ -35,9 +34,9 @@ class Confirmed extends StatelessWidget {
             alignment: Alignment.center,
             child: //Code for checking null
                 (numberConfirmed == null)
-                    ? SpinKitFadingCircle(
+                    ? SpinKitRotatingCircle(
                         color: Colors.white,
-                        size: 50,
+                        size: 20,
                       )
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -46,9 +45,7 @@ class Confirmed extends StatelessWidget {
                             child: Container(),
                           ),
                           Text(
-                            NumberFormat("#,###")
-                                .format(numberConfirmed)
-                                .toString(),
+                            "${NumberFormat("#,###").format(numberConfirmed)}",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 45,
