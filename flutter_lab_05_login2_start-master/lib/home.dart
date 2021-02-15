@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab_05_login_start/welcome.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'loginForm.dart';
@@ -14,6 +15,8 @@ class Home extends StatelessWidget {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("user", null);
     prefs.setString("pwd", null);
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => Welcome()), (route) => false);
   }
 
   @override
