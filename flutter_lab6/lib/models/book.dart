@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 class Book {
@@ -8,8 +9,8 @@ class Book {
 
   Book({
     @required this.bookId,
-    @required this.price,
-    @required this.thumbnailUrl,
     @required this.title,
+    @required this.thumbnailUrl,
+    @required this.price,
   });
 }

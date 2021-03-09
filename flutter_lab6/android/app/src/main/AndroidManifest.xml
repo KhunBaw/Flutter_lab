@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_lab6">
+    package="com.example.flutter_bookshop">
    <application
-        android:label="flutter_lab6"
+        android:label="flutter_bookshop"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
