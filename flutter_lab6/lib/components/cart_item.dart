@@ -17,7 +17,7 @@ class CartItemWidget extends StatelessWidget {
     this.price,
     this.qty,
     this.title,
-    // this.thumbnailUrl,
+    //this.thumbnailUrl,
   );
 
   @override
@@ -32,11 +32,16 @@ class CartItemWidget extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(8),
         child: ListTile(
+          /* leading: FittedBox(
+            child: Image(
+              image: NetworkImage(thumbnailUrl),
+              //height: 90,
+            ),
+          ), */
           leading: FittedBox(
             child: Image(
               image: NetworkImage(
-                  'https://www.anime-master.com/upload/Higurashi-no-Naku-Koro-ni-2020.jpg?v=18'),
-              height: 90,
+                  'https://png.pngtree.com/png-clipart/20190905/original/pngtree-cartoon-reading-book-textbook-png-image_4521719.jpg'),
             ),
           ),
           title: Text(title),
@@ -60,7 +65,7 @@ class CartItemWidget extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        cart.decreaseItem(bookId);
+                        //cart.decreaseItem(bookId);
                       },
                       child: CircleAvatar(
                         radius: 16,
@@ -95,7 +100,7 @@ class CartItemWidget extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        cart.increaseItem(bookId);
+                        //cart.increaseItem(bookId);
                       },
                       child: CircleAvatar(
                         backgroundColor: Colors.blueAccent,

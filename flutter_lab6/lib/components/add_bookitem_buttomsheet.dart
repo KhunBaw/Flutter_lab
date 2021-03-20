@@ -1,8 +1,7 @@
-import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-//import '../add_cart_button.dart';
 import '../providers/cart_provider.dart';
+import 'package:flash/flash.dart';
 
 class AddBookItemButtomSheet extends StatefulWidget {
   final int bookId;
@@ -163,69 +162,78 @@ class _AddBookItemButtomSheetState extends State<AddBookItemButtomSheet> {
               height: 30,
             ),
             Container(
-              width: double.infinity,
-              // ignore: deprecated_member_use
-              child: FlatButton(
-                onPressed: () async {
-                  cart.addItem(widget.bookId, widget.title, widget.price, _qty);
-                  Navigator.of(context).pop();
+                width: double.infinity,
+                child: FlatButton(
+                  height: 45,
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  onPressed: () async {
+                    cart.addItem(
+                        widget.bookId, widget.title, widget.price, _qty);
+                    Navigator.of(context).pop();
 
-                  await showFlash(
-                      context: context,
-                      duration: Duration(seconds: 3),
-                      builder: (context, controller) {
-                        return Flash.bar(
-                          position: FlashPosition.top,
-                          backgroundGradient: LinearGradient(
-                              colors: [Colors.black87, Colors.black87]),
-                          enableDrag: true,
-                          horizontalDismissDirection:
-                              HorizontalDismissDirection.startToEnd,
-                          margin: EdgeInsets.all(8),
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                          controller: controller,
-                          child: FlashBar(
-                            message: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(children: [
-                                    Icon(
-                                      Icons.check_circle,
-                                      size: 18,
-                                      color: Colors.greenAccent,
-                                    ),
+                    await showFlash(
+                        context: context,
+                        duration: Duration(seconds: 3),
+                        builder: (context, controller) {
+                          return Flash.bar(
+                            position: FlashPosition.bottom,
+                            backgroundGradient: LinearGradient(
+                                colors: [Colors.green[900], Colors.green[200]]),
+                            enableDrag: true,
+                            horizontalDismissDirection:
+                                HorizontalDismissDirection.startToEnd,
+                            margin: EdgeInsets.all(8),
+                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            controller: controller,
+                            child: FlashBar(
+                              message: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(children: [
+                                      Icon(
+                                        Icons.check_circle,
+                                        size: 18,
+                                        color: Colors.greenAccent,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "${(widget.isUpdate == false) ? 'Add to cart' : "Update Cart"}",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ]),
                                     SizedBox(
-                                      width: 5,
+                                      height: 10,
                                     ),
                                     Text(
-                                      "Add to Cart",
+                                      "'${widget.isUpdate}'",
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                      ),
                                     ),
                                   ]),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "${(widget.isUpdate) ? 'Update' : 'Add'}",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ]),
-                          ),
-                        );
-                      });
-                },
-                child: Text("${(widget.isUpdate)}"),
-              ),
-              // child: AddCartButton(widget.bookId, widget.title, widget.price,
-              //     widget.thumbnailUrl, widget.qty, widget.isUpdate),
-            ),
+                            ),
+                          );
+                        });
+                  },
+                  child: Text(
+                      "${(widget.isUpdate) ? "Update Cart" : "Add to cart"}",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                )
+                /* AddCartButton(widget.bookId, widget.title, widget.price,
+                  widget.thumbnailUrl, widget.qty, widget.isUpdate), */
+                ),
             SizedBox(
               height: 8,
             ),

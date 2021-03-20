@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lab6/components/add_bookitem_buttomsheet.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import 'add_bookitem_buttomsheet.dart';
 
 class BookItem extends StatelessWidget {
   final int bookId;
@@ -16,9 +17,8 @@ class BookItem extends StatelessWidget {
     this.price,
   );
 
-  Widget buildeButton(BuildContext context) {
+  Widget buildButtonSheet(BuildContext context) {
     final cart = Provider.of<Cart>(context);
-
     int _qty;
     bool _isUpdate;
 
@@ -26,10 +26,9 @@ class BookItem extends StatelessWidget {
       _isUpdate = true;
       _qty = cart.items[bookId].qty;
     } else {
-      _isUpdate = true;
+      _isUpdate = false;
       _qty = 1;
     }
-
     return AddBookItemButtomSheet(
         bookId, title, price, thumbnailUrl, _qty, _isUpdate);
   }
@@ -62,7 +61,8 @@ class BookItem extends StatelessWidget {
               icon: Icon(Icons.shopping_cart),
               onPressed: () {
                 //cart.addItem(bookId, title, price);
-                showModalBottomSheet(context: context, builder: buildeButton);
+                showModalBottomSheet(
+                    context: context, builder: buildButtonSheet);
               },
               color: Colors.pink,
             ),
