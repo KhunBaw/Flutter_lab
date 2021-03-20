@@ -8,7 +8,11 @@ class Badge extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        IconButton(icon: Icon(Icons.shopping_cart), onPressed: null),
+        IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/cart');
+            }),
         Positioned(
           right: 8,
           top: 8,

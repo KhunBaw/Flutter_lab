@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bookshop/screens/book_detail.dart';
-import 'package:flutter_bookshop/screens/book_list.dart';
+import './screens/cart_screen.dart';
+import './screens/book_detail.dart';
+import './screens/book_list.dart';
 import 'package:provider/provider.dart';
 import './providers/cart_provider.dart';
 
@@ -21,7 +22,10 @@ class BookShopApp extends StatelessWidget {
           accentColor: Colors.green,
         ),
         home: BookList(),
-        routes: {BookDetail.routeName: (context) => BookDetail()},
+        routes: {
+          BookDetail.routeName: (context) => BookDetail(),
+          '/cart': (context) => CartScreen()
+        },
       ),
     );
   }
