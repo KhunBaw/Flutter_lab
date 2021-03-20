@@ -45,18 +45,23 @@ class Cart with ChangeNotifier {
   }
 
   void addOrder(name, address) {
-    const url = 'http://192.168.1.2:3000/api/v1/addorder';
+    const url = 'http://192.168.1.15:3001/api/v1/addorder';
     Map<String, String> headers = {
       "Content-Type": "application/x-www-form-urlencoded",
       "Content-type": "application/json"
     };
-
-    http.post(url,
-        headers: headers,
-        body: json.encode({
-          'name': name,
-          'address': address,
-          'total': totalAmount,
-        }));
+    http
+        .post(
+      url,
+      headers: headers,
+      body: json.encode({
+        'name': name,
+        'address': address,
+        'total': totalAmount,
+      }),
+    )
+        .then((response) {
+      print(response.statusCode);
+    });
   }
 }

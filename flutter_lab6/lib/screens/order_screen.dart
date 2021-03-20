@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bookshop/providers/cart_provider.dart';
+import 'package:flutter_lab6/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 class OrderScreen extends StatefulWidget {
   static const routeName = '/order';
-  OrderScreen({Key key}) : super(key: key);
 
   @override
   _OrderScreenState createState() => _OrderScreenState();
@@ -20,62 +19,62 @@ class _OrderScreenState extends State<OrderScreen> {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('My order'),
+        title: Text("My Oder"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10),
         child: Form(
-            child: ListView(
-          children: [
-            TextFormField(
-              decoration: InputDecoration(labelText: "Name"),
-              textInputAction: TextInputAction.next,
-              controller: _nameController,
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter your name';
-                }
-                return null;
-              },
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Address"),
-              textInputAction: TextInputAction.next,
-              controller: _addressController,
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter your Address';
-                }
-                return null;
-              },
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            FlatButton(
-              height: 45,
-              color: Colors.blueAccent,
-              textColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              onPressed: () {
-                FocusScope.of(context).unfocus();
-                bool passValidate = _form.currentState.validate();
-                if (passValidate) {
-                  cart.addOrder(_nameController.text, _addressController.text);
-                }
-                //Navigator.pop(context);
-              },
-              child: Text(
-                'PLACE ORDER',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          key: _form,
+          child: ListView(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: "Name"),
+                textInputAction: TextInputAction.next,
+                controller: _nameController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
               ),
-            ),
-          ],
-        )),
+              TextFormField(
+                decoration: InputDecoration(labelText: "Address"),
+                maxLines: 5,
+                keyboardType: TextInputType.multiline,
+                textInputAction: TextInputAction.next,
+                controller: _addressController,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter your address';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 20),
+              FlatButton(
+                height: 45,
+                color: Colors.blueAccent,
+                textColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                onPressed: () {
+                  FocusScope.of(context).unfocus();
+                  bool passValidate = _form.currentState.validate();
+                  if (passValidate) {
+                    cart.addOrder(
+                        _nameController.text, _addressController.text);
+                  }
+                },
+                child: Text(
+                  "PLACE ORDER",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
