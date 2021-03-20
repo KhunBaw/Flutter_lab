@@ -1,4 +1,4 @@
-# flutter_lab6
+# flutter_bookshop
 
 A new Flutter project.
 

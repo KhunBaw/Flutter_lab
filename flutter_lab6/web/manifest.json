@@ -1,6 +1,6 @@
 {
-    "name": "flutter_lab6",
-    "short_name": "flutter_lab6",
+    "name": "flutter_bookshop",
+    "short_name": "flutter_bookshop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
