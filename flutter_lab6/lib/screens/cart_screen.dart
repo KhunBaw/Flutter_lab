@@ -7,6 +7,8 @@ import '../components/cart_item.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'order_screen.dart';
+
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,9 @@ class CartScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     child: Text('PLACE ORDER'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(OrderScreen.routeName);
+                    },
                     textColor: Theme.of(context).primaryColor,
                   )
                 ],

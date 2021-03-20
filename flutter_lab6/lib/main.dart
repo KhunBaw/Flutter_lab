@@ -4,6 +4,7 @@ import './providers/cart_provider.dart';
 import './screens/cart_screen.dart';
 import 'screens/book_detail.dart';
 import 'screens/book_list.dart';
+import 'screens/order_screen.dart';
 
 void main() {
   runApp(BookShopApp());
@@ -25,6 +26,7 @@ class BookShopApp extends StatelessWidget {
         routes: {
           '/book-detail': (context) => BookDetail(),
           '/cart': (context) => CartScreen(),
+          '/order': (context) => OrderScreen(),
         },
       ),
     );

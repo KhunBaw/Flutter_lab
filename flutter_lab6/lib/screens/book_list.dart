@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lab6/components/badge.dart';
-import 'package:flutter_lab6/components/book_item.dart';
+import 'package:flutter_bookshop/components/badge.dart';
+import 'package:flutter_bookshop/components/book_item.dart';
 import '../models/book.dart';
 
 class BookList extends StatelessWidget {
