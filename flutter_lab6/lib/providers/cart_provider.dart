@@ -44,24 +44,31 @@ class Cart with ChangeNotifier {
     notifyListeners();
   }
 
-  void addOrder(name, address) {
-    const url = 'http://192.168.1.15:3001/api/v1/addorder';
-    Map<String, String> headers = {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Content-type": "application/json"
-    };
-    http
-        .post(
-      url,
-      headers: headers,
-      body: json.encode({
-        'name': name,
-        'address': address,
-        'total': totalAmount,
-      }),
-    )
-        .then((response) {
-      print(response.statusCode);
-    });
+  Future<void> addOrder(name, address) async {
+    // const url = 'http://192.168.1.15:3001/api/v1/addorder';
+    // Map<String, String> headers = {
+    //   "Content-Type": "application/x-www-form-urlencoded",
+    //   "Content-type": "application/json"
+    // };
+    // http
+    //     .post(
+    //   url,
+    //   headers: headers,
+    //   body: json.encode({
+    //     'name': name,
+    //     'address': address,
+    //     'total': totalAmount,
+    //   }),
+    // ).then((response) {
+    //   print(response.statusCode);
+    // });
+
+    var url = Uri.parse('http://localhost:3001/api/v1/order');
+    var response = await http.post(url,
+        body: json.encode({
+          'name': name,
+          'address': address,
+          'total': totalAmount,
+        }));
   }
 }

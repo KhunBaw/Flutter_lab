@@ -4,7 +4,7 @@ const dbConn = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'bookshopdb'
+  database : 'books'
 });
 dbConn.connect(function(err) {
   if (err) throw err;
