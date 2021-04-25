@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1042497175279",
+    "project_id": "winter-handbook-309207",
+    "storage_bucket": "winter-handbook-309207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042497175279:android:c4aa61afa8e7915806a51a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_lab9"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042497175279-f4vb30n8qun4jk86ciecammv89db6hca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD6yxtwKfdZwNQ4QoH84U_o5b9yBIY_58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042497175279-f4vb30n8qun4jk86ciecammv89db6hca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
